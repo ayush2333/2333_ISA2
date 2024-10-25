@@ -1,14 +1,12 @@
-FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y \
-    python3 \
-    python3-pip \
-    && pip3 install Flask
 
-RUN mkdir -p /opt/app
+FROM ubuntu
 
-COPY application.py /opt/app/
+RUN apt-get update 
+RUN apt-get install -y python3
+RUN apt-get install -y python3-pip
+RUN apt-get install -y python3-flask
 
-ENV FLASK_APP=/opt/app/application.py
+COPY . /opt/app
 
-CMD ["flask", "run", "--host=0.0.0.0"]
+ENTRYPOINT FLASK_APP=/opt/app/application.py flask run
