@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/your-username/roll-number.git'
+                git 'https://github.com/ayush2333/2333_ISA2.git
+'
             }
         }
         stage('Build Docker Image') {
