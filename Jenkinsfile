@@ -11,19 +11,19 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Build 
-                sh 'docker build -t roll-number .'
+                bat 'docker build -t roll-number .'
             }
         }
         stage('Delete Old Container') {
             steps {
                 // Removes container 
-                sh 'docker rm -f roll-number || true'
+                bat 'docker rm -f roll-number || true'
             }
         }
         stage('Run Container') {
             steps {
                 // Run the Docker
-                sh 'docker run -d --name roll-number -p 5000:5000 roll-number'
+                bat 'docker run -d --name roll-number -p 5000:5000 roll-number'
             }
         }
     }
